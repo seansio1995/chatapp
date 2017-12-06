@@ -14,6 +14,14 @@
   crossorigin="anonymous"></script>
   </head>
   <body>
+
+
+    <?php
+      session_start();
+      $_SESSION['username']="Chufan Xiao";
+      // echo var_dump($_SESSION);
+
+     ?>
 <h1>My Chat App</h1>
 
 <div id="wrapper">
@@ -21,7 +29,7 @@
 
 <div class="chat_wrapper">
   <div id="chat_app"></div>
-    <form method="post">
+    <form method="post" action="sendMessage" id="messageForm">
         <textarea name="message" rows="10" cols="60" class="textarea"></textarea>
     </form>
 
@@ -40,9 +48,12 @@ $('.textarea').keyup(function(e){
 
 $('form').submit(function(){
     // alert("form submit");
-    var message=$(.textarea).val();
+    var message=$('.textarea').val();
     $.post('handlers/message.php?action=sendMessage&message='+message,function(response){
-      alert(response);
+      // alert(response);
+      if(response==1){
+        document.getElementById("messageForm").reset();
+      }
     });
     return false;
 });
