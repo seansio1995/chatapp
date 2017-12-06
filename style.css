@@ -1,0 +1,23 @@
+
+/*#wrapper{
+width: 1000px;
+margin:10px;
+
+}
+
+
+#chat_app{
+  min_height: 500px;
+  border: 2px solid blue;
+  padding: 10px;
+}*/
+#chat_app{
+  min-height: 500px;
+  border: 1px solid blue;
+  padding: 10px;
+}
+
+.textarea{
+  border: 2px solid blue;
+  padding: 10px;
+}
